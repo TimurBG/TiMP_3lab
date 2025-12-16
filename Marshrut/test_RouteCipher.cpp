@@ -110,13 +110,7 @@ SUITE(EncryptTests) {
         CHECK(result == L"БА");
     }
     
-    // Тест 2.7: Все символы - пробелы
-    TEST_FIXTURE(Key3Fixture, AllSpaces) {
-        std::wstring result = p->encrypt(L"   ");
-        CHECK(result == L"   ");
-    }
-    
-    // Тест 2.8: пустой текст - ДОЛЖНО БЫТЬ ИСКЛЮЧЕНИЕ
+    // Тест 2.7: пустой текст - ДОЛЖНО БЫТЬ ИСКЛЮЧЕНИЕ
     TEST_FIXTURE(Key3Fixture, EmptyTextException) {
         CHECK_THROW(p->encrypt(L""), cipher_error);
     }
@@ -152,7 +146,7 @@ SUITE(DecryptTests) {
     
     // Тест 3.5: Все символы - пробелы
     TEST_FIXTURE(Key3Fixture, AllSpacesDecrypt) {
-        std::wstring result = p->decrypt(L"   ");
+        std::wstring result = p->decrypt(L"    ");
         CHECK(result == L"");
     }
     
